@@ -28,7 +28,7 @@ def get_images(url):
         soup = BeautifulSoup(response.text, 'html.parser')
         results = soup.find_all('img', class_="dynamic-carousel__img")
         img_url= [img['data-src'] for img in results if 'data-src' in img.attrs]
-        img_url = [img for img in img_url if re.search(r'\.jpg|\.png', img) is not None]
+        img_url = [img for img in img_url if re.search(r'\.jpg|\.png|\.webp', img) is not None]
         img_url = list(set(img_url))
         save_images(img_url)
     
